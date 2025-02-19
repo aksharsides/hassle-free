@@ -403,127 +403,199 @@
     }
 }
 
-
-
 /*-- -------------------------- -->
-<---          Reviews           -->
+<---          Services          -->
 <--- -------------------------- -*/
 
-/* Mobile - 360px */
+/* Mobile - 360px- Contains Hover State */
 @media only screen and (min-width: 0rem) {
-    #reviews {
+    #services-30 {
         padding: var(--sectionPadding);
-        /* Centers the button */
-        text-align: center;
 
         .cs-container {
-            margin: auto;
-            max-width: (1104/16rem);
             width: 100%;
+            /* changes to 1280px at tablet */
+            max-width: (550/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
         }
 
-        .cs-topper {
-            margin-bottom: (16/16rem);
+        .cs-content {
+            /* set text align to left if content needs to be left aligned */
             text-align: center;
-        }
-
-        .cs-title {
-            max-width: (700/16rem);
-            text-align: center;
-        }
-
-        .cs-text {
-            /* 88px - 104px */
-            margin-bottom: clamp(5.5em, 10.2vw, 6.5em);
-            max-width: (650/16rem);
-            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
         }
 
         .cs-card-group {
-            /* 48px - 64px */
-            margin: 0 auto clamp(3rem, 5vw, 4rem);
+            width: 100%;
+            margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: (20/16rem);
         }
 
         .cs-item {
-            position: relative;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: (4/16rem);
-            margin: 0 auto (64/16rem);
-            background: #fff;
-            max-width: (542/16rem);
-            width: 100%;
-            /* Prevents padding from affecting height & width */
-            box-sizing: border-box;
-            /* Padding L & R - 16px - 32px */
-            padding: (60/16rem) clamp(1rem, 3.2vw, 2rem) 0;
-            /* 32px - 40px */
-            padding-bottom: clamp(2rem, 5.4vw, 2.5rem);
             list-style: none;
-            text-align: left;
-            box-shadow: 0px 20px 39px 0px rgba(0, 0, 0, 0.05);
+            margin: 0;
+            width: 100%;
 
-            &:last-of-type {
-                margin-bottom: 0;
+            &:hover {
+                .cs-picture {
+                    &:before {
+                        height: 100%;
+                    }
+
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
             }
         }
 
-        .cs-item-img {
-            position: absolute;
-            top: calc(-40 / 16 * 1rem);
-            height: (80/16rem);
-            width: (80/16rem);
-        }
-
-        .cs-item-p {
-            border-bottom: 1px solid #e8e9ec;
-            margin: 0 0 (20/16rem);
-            padding-bottom: (20/16rem);
-            font-size: (16/16rem);
-            line-height: 1.5em;
-            color: var(--bodyTextColor);
-        }
-
-        .cs-reviewer {
+        .cs-picture {
+            /* height divided by width */
+            aspect-ratio: 328/220;
+            position: relative;
             display: block;
-            margin: 0 auto 0 0;
-            width: 40%;
-            font-size: (16/16rem);
-            line-height: 1.5em;
-            font-weight: 700;
+            /* Keeps image from bleeding outside the picture element */
+            overflow: hidden;
+            &:before {
+                content: "";
+                position: absolute;
+                display: block;
+                height: 0%;
+                width: 100%;
+                background: var(--primary);
+                opacity: 0.8;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                transition: height 0.3s;
+            }
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                /* Makes img tag act like a background image */
+                object-fit: cover;
+                transition: transform 0.7s;
+            }
+        }
+
+        .cs-box {
+            /* Centers the button */
+            text-align: center;
+            width: 90%;
+            margin: 0 auto;
+            /* -32px to -48px */
+            margin-top: ~"calc(clamp(2rem, 7vw, 3rem)*-1)";
+            /* 24px to 28px */
+            padding-top: clamp(1.5rem, 2.4vw, 1.75rem);
+            background: #fff;
+            position: relative;
+            z-index: 10;
+        }
+
+        .cs-h3 {
+            /* 20px - 25px */
+            font-size: clamp(1.25rem, 2vw, 1.5625rem);
+            text-align: center;
+            line-height: 1.2em;
+            font-weight: bold;
             color: var(--headerColor);
+            /* 24px to 28px */
+            margin: 0 0 clamp(1.5rem, 2.4vw, 1.75rem);
         }
 
-        .cs-desc {
-            display: block;
-            font-size: (14/16rem);
-            font-weight: 400;
-            color: var(#353535);
-        }
+        .cs-button-transparent {
+            font-size: (16/16rem);
+            /* 46px - 56px */
+            line-height: clamp(2.875em, 5.5vw, 3.5em);
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            margin: auto;
+            color: var(--primary);
+            min-width: (150/16rem);
+            padding: 0 (24/16rem);
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            /* prevents padding from adding to the width */
+            box-sizing: border-box;
+            transition: color 0.3s;
 
-        .cs-item-stars {
-            height: (16/16rem);
-            width: (96/16rem);
+            &:before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 0%;
+                background: var(--primary);
+                opacity: 1;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                transition: width 0.3s;
+            }
+
+            &:hover {
+                color: #fff;
+                &:before {
+                    width: 100%;
+                }
+            }
         }
     }
 }
 
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
-    #reviews {
+    #services-30 {
+        .cs-container {
+            max-width: (1280/16rem);
+        }
         .cs-card-group {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: (16/16rem);
+            flex-wrap: wrap;
+            flex-direction: row;
         }
 
         .cs-item {
-            /* reset margin so it won't interfere with flexbox */
-            margin: 0;
+            width: 47%;
+        }
+
+        .cs-picture {
+            /* Reset aspect ratio, don't need it anymore */
+            aspect-ratio: initial;
+            /* 240px - 420px */
+            height: clamp(15rem, 31.5vw, 26.25rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #services-30 {
+        .cs-card-group {
+            max-width: 100%;
+            flex-wrap: nowrap;
+        }
+
+        .cs-item {
+            width: 24%;
         }
     }
 }
@@ -531,21 +603,570 @@
 /* Dark Mode */
 @media only screen and (min-width: 0rem) {
     body.dark-mode {
-        #reviews {
+        #services-30 {
+            .cs-topper {
+                color: var(--primaryLight);
+            }
+
             .cs-title,
             .cs-text,
-            .cs-item-p,
-            .cs-reviewer {
+            .cs-h3 {
                 color: var(--bodyTextColorWhite);
             }
 
-            .cs-item {
-                background: var(--medium);
+            .cs-box {
+                background: var(--dark);
             }
 
-            .cs-desc {
-                color: var(--primaryLight);
+            .cs-button-transparent {
+                border: 1px solid #fafbfc;
+                color: #fafbfc;
+
+                &:before {
+                    background: var(--primary);
+                }
+                &:hover {
+                    border: 1px solid var(--primary);
+                }
             }
         }
     }
 }
+
+                                
+
+/*-- -------------------------- -->
+<---          Pricing           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #pricing-1260 {
+        padding: var(--sectionPadding);
+        /* clips svg graphic from overflowing the section */
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+
+        .cs-container {
+            width: 100%;
+            /* changes to 1280px at desktop */
+            max-width: (550/16em);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px, changes to 20px at large desktop */
+            gap: clamp(3rem, 6vw, 4rem);
+            position: relative;
+        }
+
+        .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: left;
+            width: 100%;
+            max-width: (643/16rem);
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: flex-start;
+        }
+
+        .cs-text {
+            margin-bottom: (16/16rem);
+            &:last-of-type {
+                margin-bottom: (32/16rem);
+            }
+        }
+
+        .cs-button-solid {
+            font-size: (16/16rem);
+            /* 46px - 56px */
+            line-height: clamp(2.875em, 5.5vw, 3.5em);
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            margin: 0;
+            color: #fff;
+            min-width: (150/16rem);
+            padding: 0 (24/16rem);
+            background-color: var(--primary);
+            overflow: hidden;
+            border-radius: (4/16rem);
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            /* prevents padding from adding to the width */
+            box-sizing: border-box;
+
+            &:before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 0%;
+                background: #000;
+                opacity: 1;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                transition: width 0.3s;
+            }
+
+            &:hover {
+                &:before {
+                    width: 100%;
+                }
+            }
+        }
+
+        .cs-card-group {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            /* prevents flexbox from squishing it */
+            flex: none;
+        }
+
+        .cs-item {
+            text-align: left;
+            list-style: none;
+            width: 100%;
+            margin: 0;
+            padding: (24/16rem) (24/16rem);
+            background-color: #fff;
+            border: 1px solid #dad9e3;
+            border-radius: (24/16rem) 0 0 0;
+            /* prevents padding and border from affecting height and width */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            position: relative;
+            z-index: 1;
+
+            &.cs-popular {
+                background-color: #14142b;
+                border-radius: 0 0 (24/16rem) 0;
+                border: none;
+
+                .cs-popular-tag {
+                    display: inline-flex;
+                }
+
+                .cs-package,
+                .cs-price,
+                .cs-duration,
+                .cs-item-text,
+                .cs-li {
+                    color: var(--bodyTextColorWhite);
+                }
+
+                .cs-item-text,
+                .cs-li {
+                    opacity: 0.8;
+                }
+
+                .cs-icon {
+                    filter: none;
+                    opacity: 1;
+                }
+
+                .cs-button-transparent {
+                    background-color: var(--primary);
+                    color: var(--bodyTextColorWhite);
+                    border: none;
+                    transition: color 0.3s;
+
+                    &:before {
+                        background-color: #fff;
+                    }
+
+                    &:hover {
+                        color: var(--primary);
+                    }
+                }
+            }
+        }
+
+        .cs-popular-tag {
+            font-size: (14/16rem);
+            line-height: 1.2em;
+            text-align: center;
+            width: auto;
+            margin: 0;
+            padding: (4/16rem) (12/16rem);
+            box-sizing: border-box;
+            color: #ff9b7d;
+            overflow: hidden;
+            border-radius: (4/16rem);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            /* same as cs-item padding top */
+            top: (24/16rem);
+            right: (24/16rem);
+            z-index: 1;
+
+            &:before {
+                /* background color overlay */
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: var(--primary);
+                opacity: 0.16;
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
+        }
+
+        .cs-picture {
+            width: (76/16rem);
+            height: (76/16rem);
+            margin-bottom: (24/16rem);
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            &:before {
+                /* background color */
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: var(--primary);
+                opacity: 0.2;
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        .cs-package {
+            font-size: (20/16rem);
+            line-height: 1.2em;
+            text-align: inherit;
+            font-weight: 700;
+            margin: 0 0 (8/16rem) 0;
+            color: var(--headerColor);
+            display: block;
+        }
+
+        .cs-price {
+            font-size: (39/16rem);
+            line-height: 1.2em;
+            text-align: inherit;
+            font-weight: 900;
+            margin: 0 0 (12/16rem);
+            color: var(--headerColor);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: (8/16rem);
+        }
+
+        .cs-duration {
+            font-size: (14/16rem);
+            line-height: 1.5em;
+            font-weight: 400;
+            margin: 0;
+            color: var(--headerColor);
+        }
+
+        .cs-item-text {
+            /* 14px - 16px */
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            line-height: 1.5em;
+            text-align: inherit;
+            margin: 0 0 (32/16rem);
+            color: var(--bodyTextColor);
+        }
+
+        .cs-ul {
+            margin: 0 0 (32/16rem);
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: (8/16rem);
+        }
+
+        .cs-li {
+            /* 14px - 16px */
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            list-style: none;
+            line-height: 1.5em;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            color: var(--bodyTextColor);
+            display: flex;
+            justify-content: flex-start;
+            /* push everything to the top so if the li goes to two lines the icon stays at the top */
+            align-items: flex-start;
+            gap: (8/16rem);
+
+            &.cs-disabled {
+                opacity: 0.5;
+
+                .cs-icon {
+                    filter: grayscale(1) brightness(300%);
+                }
+            }
+        }
+
+        .cs-icon {
+            width: (24/16rem);
+            height: auto;
+            filter: grayscale(1);
+            opacity: 0.5;
+            display: block;
+        }
+
+        .button-solid {
+            width: 100%;
+        }
+
+        .cs-button-transparent {
+            font-size: (16/16rem);
+            /* 46px - 56px */
+            line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            margin: 0;
+            color: var(--primary);
+            min-width: (150/16rem);
+            padding: 0 (24/16rem);
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            border-radius: (4/16rem);
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            /* prevents padding from adding to the width */
+            box-sizing: border-box;
+            transition:
+                color 0.3s,
+                border-color 0.3s,
+                background-color 0.3s;
+
+            &:before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 0%;
+                background: #000;
+                opacity: 1;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                border-radius: (4/16rem);
+                transition: width 0.3s;
+            }
+
+            &:hover {
+                color: #fff;
+                border-color: #000;
+                background-color: #000;
+                &:before {
+                    width: 100%;
+                }
+            }
+        }
+
+        .cs-waves-wrapper {
+            width: 100vw;
+            height: 60%;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            z-index: -1;
+            transform: translateX(-50%);
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #pricing-1260 {
+        .cs-container {
+            max-width: (1280/16rem);
+            /* remove the position so the svg waves wrapper can be positioned relative to the section container for tablet so it hugs the right edge of the screen. We set it back to relative at 1024px so it can then be positioned relative to the container again so it hugs the right edge of the container with the pricing cards */
+            position: initial;
+        }
+
+        .cs-card-group {
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: nowrap;
+        }
+
+        .cs-item {
+            width: 50%;
+            border-radius: (24/16rem) 0 0 (24/16rem);
+
+            &.cs-popular {
+                border-radius: 0 (24/16rem) (24/16rem) 0;
+            }
+        }
+
+        .cs-waves-wrapper {
+            /* changes to 740px at large desktop */
+            width: 55vw;
+            height: 100%;
+            left: auto;
+            right: 0;
+            bottom: auto;
+            top: 0;
+            transform: none;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #pricing-1260 {
+        .cs-container {
+            max-width: (1280/16rem);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-waves-wrapper {
+            height: 140%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+/* Large Desktop - 1300px */
+@media only screen and (min-width: 81.25rem) {
+    #pricing-1260 {
+        .cs-container {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: (20/16rem);
+        }
+
+        .cs-card-group {
+            width: 62%;
+            max-width: (740/16rem);
+        }
+
+        .cs-waves-wrapper {
+            max-width: (740/16rem);
+            width: 100%;
+        }
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode {
+        #pricing-1260 {
+            .cs-title,
+            .cs-text,
+            .cs-package,
+            .cs-li,
+            .cs-item-text,
+            .cs-price,
+            .cs-duration {
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-text,
+            .cs-item-text,
+            .cs-li {
+                opacity: 0.8;
+            }
+
+            .cs-item {
+                background-color: var(--dark);
+                border-color: rgba(255, 255, 255, 0.2);
+
+                &.cs-popular {
+                    background-color: var(--primary);
+
+                    .cs-picture {
+                        &:before {
+                            background-color: #fff;
+                        }
+
+                        .cs-picture-icon {
+                            filter: grayscale(1) brightness(1000%);
+                        }
+                    }
+
+                    .cs-popular-tag {
+                        color: var(--bodyTextColorWhite);
+                        &:before {
+                            background-color: #14142b;
+                            opacity: 1;
+                        }
+                    }
+
+                    .cs-package,
+                    .cs-li,
+                    .cs-item-text,
+                    .cs-price,
+                    .cs-duration {
+                        color: var(--headerColor);
+                    }
+
+                    .cs-icon {
+                        filter: grayscale(1) brightness(1000%);
+                        opacity: 1;
+                    }
+
+                    .cs-button-transparent {
+                        color: var(--primary);
+                        background-color: #fff;
+                        &:before {
+                            background-color: #1a1a1a;
+                        }
+                    }
+                }
+            }
+
+            .cs-icon {
+                filter: none;
+                opacity: 1;
+            }
+
+            .cs-button-solid {
+                transition: color 0.3s;
+                &:hover {
+                    color: var(--primary);
+                }
+
+                &:before {
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+}
+                                
