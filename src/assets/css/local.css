@@ -73,6 +73,15 @@
     margin-bottom: 1rem;
     max-width: 46.875rem;
     text-align: left;
+    list-style-type: disc;
+    padding-left: 1.5rem;
+  }
+  #sbs-r .cs-text li {
+    margin-bottom: 0.5rem;
+    /* 14px - 16px */
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    line-height: 1.5em;
+    color: #353535;
   }
   #sbs-r .cs-text:last-of-type {
     margin-bottom: 2rem;
@@ -239,6 +248,15 @@
     margin-bottom: 1rem;
     max-width: 46.875rem;
     text-align: left;
+    list-style-type: disc;
+    padding-left: 1.5rem;
+  }
+  #sbs .cs-text li {
+    margin-bottom: 0.5rem;
+    /* 14px - 16px */
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    line-height: 1.5em;
+    color: #353535;
   }
   #sbs .cs-text:last-of-type {
     margin-bottom: 2rem;
@@ -524,6 +542,31 @@
   body.dark-mode #services-30 .cs-button-transparent:hover {
     border: 1px solid var(--primary);
   }
+}
+#sbs-r .cs-text,
+#sbs .cs-text {
+  margin-bottom: 1rem;
+  max-width: 46.875rem;
+  text-align: left;
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+#sbs-r .cs-text li,
+#sbs .cs-text li {
+  margin-bottom: 0.5rem;
+  /* 14px - 16px */
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  line-height: 1.5em;
+  color: #353535;
+}
+#sbs-r .cs-text:last-of-type,
+#sbs .cs-text:last-of-type {
+  margin-bottom: 2rem;
+}
+/* Dark Mode */
+body.dark-mode #sbs-r .cs-text li,
+body.dark-mode #sbs .cs-text li {
+  color: var(--bodyTextColorWhite);
 }
 /*-- -------------------------- -->
 <---          Pricing           -->
