@@ -819,6 +819,12 @@
     border-radius: 0;
     top: 0;
   }
+  /* just putting here so can update later if needed */
+  .cs-logo {
+    width: 18.4%;
+    max-width: 21.875rem;
+    height: 20rem;
+  }
   #cs-navigation {
     width: 94%;
     max-width: 90rem;
