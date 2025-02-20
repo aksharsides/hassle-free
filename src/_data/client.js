@@ -1,16 +1,16 @@
 module.exports = {
-    "name": "Code Stitch Web Designs",
-    "email": "help@codestitch.app",
-    "phoneForTel": "555-779-4407",
-    "phoneFormatted": "(555) 779-4407",
+    "name": "Hassle Free Web Designs",
+    "email": "hasslefree",
+    "phoneForTel": "012345689",
+    "phoneFormatted": "0123456789",
     "address": {
         "lineOne": "First Address Line",
         "lineTwo": "Second Address Line",
-        "city": "Denver",
-        "state": "CO",
-        "zip": "80206",
-        "country": "US",
-        "mapLink": "https://maps.app.goo.gl/TEdS5KoLC9ZcULuQ6"
+        "city": "UK",
+        "state": "London",
+        "zip": "postcode",
+        "country": "UK",
+        "mapLink": "https://maps.app.goo.gl/"
     },
     "socials": {
         "facebook": "https://www.facebook.com/",
